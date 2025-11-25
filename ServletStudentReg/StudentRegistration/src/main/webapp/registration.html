@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Registration Page</title>
+</head>
+<body>
+   <form method="post" action="StudentProfile">
+      <header>Student Registration</header>
+      <br></br>
+      <label>Id: </label>
+      <input name="s_id" placeholder="enter id" type="text"/>
+      <br></br>
+      <label>Name: </label>
+      <input name="s_name" placeholder="enter name"type=text/>
+      <br></br>
+      <label>Email: </label>
+      <input name="s_email" placeholder="enter email"/>
+      <br></br>
+      <label>Gender:</label>
+      <input type="radio" name="s_gender" value="male"> Male
+      <input type="radio" name="s_gender" value="female"> Female
+      
+      <br></br>
+      
+      <label>Course</label>
+      <select name="course">
+         <option value="">-- Select Course --</option>
+         <option value="java">JAVA</option>
+         <option value="c++">C++</option>
+         <option value="python">PYTHON</option>
+         <option value="ds">DATA SCIENCE</option>
+      </select>
+      
+      <br></br>
+      
+      <button type="submit">submit</button>
+   </form>
+</body>
+</html>
