@@ -4,41 +4,43 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 public class ViewBookServlet extends HttpServlet {
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-//		String title = request.getParameter("title");
-//		String author = request.getParameter("author");
-//		String genre = request.getParameter("genre");
-//		int year = Integer.parseInt(request.getParameter("year"));
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
 		PrintWriter out = response.getWriter();
-
-//		Book b = new Book(title, author, genre, year);
-
+		ArrayList<Book> al = new ArrayList<>(); 
+		
 		BookJdbc bd = new BookJdbc();
 		ResultSet rs = null;
 
-		out.println("-------------");
 		try {
 			rs = bd.getBooks();
-			while (rs.next()) {
-				out.println(rs.getString("title"));
-				out.println(rs.getString("author"));
-				out.println(rs.getString("genre"));
-				out.println(rs.getInt("year_published"));
-				out.println("-------------");
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		
+		try {
+			while(rs.next()) {
+				Book b = new Book(rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5));
+				al.add(b);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		request.setAttribute("allbooks", al);
+		RequestDispatcher rd = request.getRequestDispatcher("view.jsp");
+		rd.forward(request, response);
+		
+		
 	}
 }
