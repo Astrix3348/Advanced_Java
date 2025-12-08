@@ -8,17 +8,16 @@ import java.sql.SQLException;
 
 public class BookJdbc {
 	Connection con;
-	
+
 	public void accessConnection() throws ClassNotFoundException, SQLException {
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/jsp", "root", "");
+		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/jsp", "root", "cr7aakash1234");
 
 	}
-	
-	
+
 	public boolean books(Book b) throws ClassNotFoundException, SQLException {
 		accessConnection();
-		
+
 		String insertBook = "insert into books(title, author, genre, year_published) values(?,?,?,?)";
 		PreparedStatement pmt = con.prepareStatement(insertBook);
 
@@ -35,13 +34,53 @@ public class BookJdbc {
 		}
 		return status;
 	}
-	
+
 	public ResultSet getBooks() throws SQLException, ClassNotFoundException {
 		accessConnection();
 		String viewAll = "select * from books";
 		PreparedStatement pmt = con.prepareStatement(viewAll);
 		ResultSet rs = pmt.executeQuery();
-		
+
 		return rs;
 	}
+
+	public boolean updateBook(Book b) throws ClassNotFoundException, SQLException {
+		accessConnection();
+
+		String updateBook = "update books set title = ?, author = ?, genre = ?, year_published = ? where title = ?";
+		PreparedStatement pmt = con.prepareStatement(updateBook);
+
+		pmt.setString(1, b.title);
+		pmt.setString(2, b.author);
+		pmt.setString(3, b.genre);
+		pmt.setInt(4, b.year);
+		pmt.setString(5, b.title);
+
+		int row = pmt.executeUpdate();
+
+		if (row > 0) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+	
+	public boolean delBook(String delBook) throws ClassNotFoundException, SQLException {
+		accessConnection();
+		String deletebook = "delete from books where title = ?";
+		
+		
+		PreparedStatement pmt = con.prepareStatement(deletebook);
+		pmt.setString(1, delBook);
+		int rows = pmt.executeUpdate();
+		
+		if(rows > 0) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
 }

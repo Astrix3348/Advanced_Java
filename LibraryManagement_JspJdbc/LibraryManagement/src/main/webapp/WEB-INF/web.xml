@@ -30,9 +30,38 @@
 	    <servlet-name>viewbook</servlet-name>
 	    <servlet-class>cdac.ViewBookServlet</servlet-class>
 	</servlet>
+	
 	<servlet-mapping>
 	    <servlet-name>viewbook</servlet-name>
 	    <url-pattern>/viewbook</url-pattern>
 	</servlet-mapping>
+	
+	
+	
+	<servlet>
+		<servlet-name>updatebook</servlet-name>
+		<servlet-class>cdac.UpdateBookServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>updatebook</servlet-name>
+		<url-pattern>/updateBook</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+	<servlet>
+		<servlet-name>deleteBooks</servlet-name>
+		<servlet-class>cdac.DeleteBookServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>deleteBooks</servlet-name>
+		<url-pattern>/deleteBook</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+	
 
 </web-app>

@@ -12,6 +12,9 @@ public class Book {
 		this.genre = genre;
 		this.year = year;
 	}
+	public Book() {
+		
+	}
 
 	public String getTitle() {
 		return title;
