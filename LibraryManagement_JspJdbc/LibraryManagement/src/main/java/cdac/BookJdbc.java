@@ -11,7 +11,7 @@ public class BookJdbc {
 	
 	public void accessConnection() throws ClassNotFoundException, SQLException {
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/jsp", "root", "cr7aakash1234");
+		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/jsp", "root", "");
 
 	}
 	
