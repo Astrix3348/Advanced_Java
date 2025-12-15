@@ -10,5 +10,59 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.xhtml</welcome-file>
+    <welcome-file>register.html</welcome-file>
   </welcome-file-list>
+  
+  <servlet>
+      <servlet-name>registration</servlet-name>
+      <servlet-class>cdac.RegisterServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+      <servlet-name>registration</servlet-name>
+      <url-pattern>/register</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+      <servlet-name>logingin</servlet-name>
+      <servlet-class>cdac.LoginServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+      <servlet-name>logingin</servlet-name>
+      <url-pattern>/login</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  <servlet>
+      <servlet-name>adding</servlet-name>
+      <servlet-class>cdac.AddServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+      <servlet-name>adding</servlet-name>
+      <url-pattern>/add</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+  
+  <servlet>
+      <servlet-name>viewing</servlet-name>
+      <servlet-class>cdac.ViewServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+      <servlet-name>viewing</servlet-name>
+      <url-pattern>/view</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+  
+  
 </web-app>

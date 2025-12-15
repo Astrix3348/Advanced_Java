@@ -2,9 +2,14 @@ package cdac;
 
 public class ShoppingCart {
 	String name;
-	String password;
 	String item;
 	int price;
+	
+	public ShoppingCart(String name, String item, int price) {
+		this.name = name;
+		this.item = item;
+		this.price = price;
+	}
 
 	public String getName() {
 		return name;
@@ -14,13 +19,6 @@ public class ShoppingCart {
 		this.name = name;
 	}
 
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
 
 	public String getItem() {
 		return item;

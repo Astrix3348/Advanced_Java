@@ -11,19 +11,19 @@ public class JDBCConnection {
 	
 	public void accessConnection() throws ClassNotFoundException, SQLException {
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		con = DriverManager.getConnection("jdbc://localhost:3306/practice", "root", "cr7aakash1234");
+		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/practice", "root", "cr7aakash1234");
 	}
 	
-	public boolean ShoppingCart(ShoppingCart s) throws ClassNotFoundException, SQLException {
+	public boolean addItems(ShoppingCart s) throws ClassNotFoundException, SQLException {
 		accessConnection();
 		
-		String insertItem = "insert into shopping (s_name, s_password, item, price) values (?,?,?,?)";
+		String insertItem = "insert into cart (u_name, item_name, price) values (?,?,?)";
 		PreparedStatement pmt = con.prepareStatement(insertItem);
 		
+		
 		pmt.setString(1, s.name);
-		pmt.setString(2, s.password);
-		pmt.setString(3, s.item);
-		pmt.setInt(4, s.price);
+		pmt.setString(2, s.item);
+		pmt.setInt(3, s.price);
 		
 		int rs = pmt.executeUpdate();
 		return rs > 0 ? true : false;
