@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spring Boot</title>
+</head>
+<body>
+    <form action="@{/register}" method="post">
+		<label>Name: </label> <input th:field="s_name"/>
+		<label>Prn</label> <input th:field="s_prn"/>
+		 <button type="submit">add</button>
+	</form>
+</body>
+</html>
