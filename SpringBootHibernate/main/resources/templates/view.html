@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Student Registration</title>
+</head>
+
+<body>
+
+	<h2>Student Registration</h2>
+	<table border="2">
+		<tr>
+			<td>Id</td>
+			<td>Name</td>
+			<td>Course</td>
+			<td>Action</td>
+		</tr>
+
+		<tr th:each="s : ${list}">
+			<td th:text="${s.s_id}"></td>
+			<td th:text="${s.s_name}"></td>
+			<td th:text="${s.s_course}"></td>
+			<td><a th:href="@{/update/{id}(id=${s.s_id})}">update</a></td>
+		</tr>
+	</table>
+	<a th:href="register">go back</a> <br />
+	<a th:href="delete">remove a student</a> <br />
+	
+</body>
+
+</html>

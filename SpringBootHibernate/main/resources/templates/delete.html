@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Student Registration</title>
+</head>
+
+<body>
+
+	<h2>Student Deletion</h2>
+	<form th:action="@{/deleteStudent}" method="post" th:object="${students}">
+		<label>Id</label>
+		<input placeholder="enter id" th:field="*{s_id}" />
+		<button type="submit">delete</button>
+	</form>
+
+	<a href="view">view all</a>
+
+</body>
+
+</html>
