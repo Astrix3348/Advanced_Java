@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <title>Spring Boot</title>
+</head>
+<body>
+    <form th:action="@{/register}" th:object="${student}"  method="post">
+		<label>Name: </label> <input th:field="*{s_name}"/>
+		<label>Prn</label> <input th:field="*{s_prn}"/>
+		 <button type="submit">register</button>
+	</form>
+</body>
+</html>
