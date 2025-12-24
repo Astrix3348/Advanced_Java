@@ -53,4 +53,27 @@ public class StudentDAO {
 		return list;
 
 	}
+	
+	public boolean delStudents(String s_name) throws SQLException {
+		String sql = "delete from students where s_name = ?";
+		Connection con = dataSource.getConnection();
+		PreparedStatement pmt = con.prepareStatement(sql);
+		pmt.setString(1, s_name);
+		
+		return pmt.executeUpdate() > 0 ? true : false;
+		
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

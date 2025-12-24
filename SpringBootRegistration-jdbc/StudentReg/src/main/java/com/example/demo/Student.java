@@ -1,11 +1,12 @@
 package com.example.demo;
 
+
+
 public class Student {
 	String s_name;
 	int s_prn;
 	
 	public Student(String s_name, int s_prn) {
-		super();
 		this.s_name = s_name;
 		this.s_prn = s_prn;
 	}
