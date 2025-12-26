@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Add Book</title>
+</head>
+
+<body>
+	<form method="post" th:action="@{/searchById}" th:object="${books}">
+		<label>Id</label> <input placeholder="enter id to find" th:field="*{id}" />
+		<br />
+		<button th:type="submit">search</button>
+	</form>
+</body>
+
+</html>
