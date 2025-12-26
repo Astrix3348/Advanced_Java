@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>All Cars</title>
+</head>
+
+<body>
+	<table th:border="2">
+		<tr>
+			<td>id</td>
+			<td>brand</td>
+			<td>cost</td>
+		</tr>
+		<tr th:each="c : ${cars}">
+			<td th:text="${c.id}"></td>
+			<td th:text="${c.brand}"></td>
+			<td th:text="${c.cost}"></td>
+		</tr>
+	</table>
+	<a href="insert">add another car</a> <br />
+
+
+	<a href="view">view cars</a> <br />
+	<a href="viewId">search car by id</a> <br />
+	<a href="delete">delete car by id</a>
+</body>
+
+</html>

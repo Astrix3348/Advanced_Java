@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Add Book</title>
+</head>
+
+<body>
+	<form th:action="@{/viewById}" method="post" th:object="${car}">
+		<label>Id:</label> <input th:field="*{id}"/>
+		<button th:type="submit">search</button>
+	</form>
+	
+</body>
+
+</html>

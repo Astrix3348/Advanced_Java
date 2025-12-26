@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Add Book</title>
+</head>
+
+<body>
+	<form th:action="@{/added}" method="post" th:object="${car}">
+		<label>id</label> <input th:field="*{id}" placeholder="enter id"/>
+		<label>brand</label> <input th:field="*{brand}" placeholder="enter brand"/>
+		<label>cost</label> <input th:field="*{cost}" placeholder="enter cost"/>
+		<button th:type="submit">add</button>
+	</form>
+	
+	<a href="insert">add car</a> <br/>
+		<a href="view">view cars</a> <br/>
+		<a href="viewId">search car by id</a> <br/>
+		<a href="delete">delete car by id</a>
+</body>
+
+</html>
